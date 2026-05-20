@@ -242,7 +242,7 @@ export const CrudAdmin = () => {
           </section>
 
           <section className="rounded-3xl bg-[#1d1825] border border-[#d9b26f]/20 p-6 shadow-2xl overflow-x-auto">
-            <h2 className="text-2xl font-black text-white">Despachos Parfum</h2>
+            <h2 className="text-2xl font-black text-white">Despachos Parfum - Emilio Parra</h2>
             <p className="text-sm text-stone-400 mb-4">Microservicio de despachos en puerto 8081.</p>
             <table className="w-full text-left text-sm">
               <thead className="text-[#f4d08a] border-b border-[#d9b26f]/20">
