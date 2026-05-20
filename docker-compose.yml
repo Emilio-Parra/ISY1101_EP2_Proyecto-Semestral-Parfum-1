@@ -1,0 +1,55 @@
+services:
+  db:
+    build: ./db
+    container_name: parfum-db
+    ports:
+      - "3306:3306"
+    volumes:
+      - perfumeria-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ualumno", "-palumno123"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  ventas:
+    build: ./backend-ventas
+    container_name: parfum-ventas
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_ENDPOINT: db
+      DB_PORT: 3306
+      DB_NAME: perfumeria_db
+      DB_USERNAME: alumno
+      DB_PASSWORD: alumno123
+    ports:
+      - "8080:8080"
+
+  despachos:
+    build: ./backend-despachos
+    container_name: parfum-despachos
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_ENDPOINT: db
+      DB_PORT: 3306
+      DB_NAME: perfumeria_db
+      DB_USERNAME: alumno
+      DB_PASSWORD: alumno123
+    ports:
+      - "8081:8081"
+
+  frontend:
+    build: ./frontend
+    container_name: parfum-frontend
+    depends_on:
+      - ventas
+      - despachos
+    ports:
+      - "80:80"
+
+volumes:
+  perfumeria-data:
