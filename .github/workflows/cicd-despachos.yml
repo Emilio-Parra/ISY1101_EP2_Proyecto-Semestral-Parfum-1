@@ -45,6 +45,6 @@ jobs:
               "docker pull ${{ secrets.ECR_REPO_URL_DESPACHOS }}:latest",
               "docker stop parfum-despachos || true",
               "docker rm parfum-despachos || true",
-              "docker run -d --name parfum-despachos -p 8081:8081 -e DB_ENDPOINT=10.0.143.206 -e DB_PORT=3306 -e DB_NAME=perfumeria_db -e DB_USERNAME=alumno -e DB_PASSWORD=alumno123 ${{ secrets.ECR_REPO_URL_DESPACHOS }}:latest"
+              "docker run -d --name parfum-despachos -p 8081:8081 -e DB_ENDPOINT=10.0.157.155 -e DB_PORT=3306 -e DB_NAME=perfumeria_db -e DB_USERNAME=alumno -e DB_PASSWORD=alumno123 ${{ secrets.ECR_REPO_URL_DESPACHOS }}:latest"
             ]}' \
             --output text
