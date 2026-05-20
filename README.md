@@ -54,7 +54,7 @@ Crear estos repositorios en ECR:
 docker compose up --build
 ```
 
-Luego abrir:
+Luego abrirr:
 
 ```text
 http://localhost
